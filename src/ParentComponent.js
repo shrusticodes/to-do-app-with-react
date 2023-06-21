@@ -50,6 +50,7 @@ function ParentComponent() {
   ));
 
   return (
+ 
     <div className="mainDiv">
       <h2>To Do List</h2>
       <AddTask addTask={addTaskHandler} />
@@ -60,4 +61,4 @@ function ParentComponent() {
   );
 }
 
-export default React.memo(ParentComponent);
+export default ParentComponent;
