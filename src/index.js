@@ -9,3 +9,4 @@ root.render(
     <ParentComponent />
   </React.StrictMode>
 );
+console.log("Loaded")

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-export default function AddTask({addTask}) {
+function AddTask({addTask}) {
     const [value, setValue] = useState('');
     const handleChange = (event) => {
        setValue(event.target.value);
@@ -16,3 +16,4 @@ export default function AddTask({addTask}) {
         </div>
     );
 }
+export default AddTask;

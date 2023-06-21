@@ -1,5 +1,5 @@
 import React from 'react'
-export default function TaskComponent({task, onDelete, isTaskDone, onUpdate}) {
+function TaskComponent({task, onDelete, isTaskDone, onUpdate}) {
     const {id, taskName, onCheck} = task;
     const handleOnDelete=()=>{
         onDelete(id);
@@ -12,9 +12,10 @@ export default function TaskComponent({task, onDelete, isTaskDone, onUpdate}) {
     }
     return (
         <li>
-            <input type='checkbox' checked={onCheck} onChange={handleChange} />
+            <input type='checkbox' checked={onCheck} onClick={handleChange} />
             <input type="text" value={taskName} onChange={handleOnUpdate}/>
             <button className="btn-style" onClick={handleOnDelete}>Delete</button>
         </li>
     );
 }
+export default TaskComponent;
