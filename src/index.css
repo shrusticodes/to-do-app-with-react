@@ -30,6 +30,17 @@ body {
   margin: 10% auto;
 }
 
+.filterDiv{
+  width: 320px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+}
+
+.filter{
+  width:30%
+}
+
 .addTaskDiv {
   width: 320px;
   background-color: white;
