@@ -1,4 +1,5 @@
 import React from 'react'
+
 function TaskComponent({ task, onDelete, onTaskDone, onUpdate }) {
     const { id, taskName, isTaskDone } = task;
     const handleOnDelete = () => {
