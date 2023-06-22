@@ -30,13 +30,6 @@ body {
   margin: 10% auto;
 }
 
-.filterDiv{
-  width: 320px;
-  background-color: white;
-  border-radius: 10px;
-  display: flex;
-}
-
 .filter{
   width:30%
 }
@@ -47,6 +40,13 @@ body {
   border-radius: 10px;
   font-weight: 650;
   margin: 10% auto;
+}
+
+.searchDiv{
+  width: 320px;
+  background-color: white;
+  margin-top:10px;
+  margin-bottom: 30px;
 }
 
 input {
@@ -96,6 +96,10 @@ ul {
   padding: 0;
 }
 
-h2 {
-  margin: 10px 0px 10px 0px;
+h2, h3 {
+  margin: 10px 0px 5px 0px;
+}
+
+.search{
+  width:310px;
 }
