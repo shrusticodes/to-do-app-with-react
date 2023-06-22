@@ -12,7 +12,7 @@ function AddTask({ addTask }) {
     }
     return (
         <div className='addTaskDiv'>
-            <input type='text' placeholder='Add Task' value={value} onChange={handleChange} />
+            <input type='text' placeholder='Add a Task' value={value} onChange={handleChange} />
             <button className="btn-style" onClick={handleAddTask}>Add</button>
         </div>
     );

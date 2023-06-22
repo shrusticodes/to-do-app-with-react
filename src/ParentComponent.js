@@ -4,7 +4,7 @@ import TaskComponent from './TaskComponent';
 import FilterComponent from './FilterComponent';
 
 function ParentComponent() {
-  const [toDoTasks, setToDoTasks] = useState([]);
+  const [toDoTasks, setToDoTasks] = useState([{id:43, taskName:"Wash clothes", isTaskDone: true},{id:765, taskName:"Dress up", isTaskDone:true}]);
   const [filter, setFilter] = useState('all');
   const [searchText, setSearchText] = useState('');
 

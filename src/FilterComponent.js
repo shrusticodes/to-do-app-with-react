@@ -18,7 +18,7 @@ export default function FilterComponent({ filteredValue, onSearchChange }) {
         <button className="btn-style filter" onClick={completedTasks}>Completed</button>
       </div>
       <div className="searchDiv">
-        <input type="text" placeholder="Input to search a task/tasks" className='search' onChange={onSearchChange} />
+        <input type="text" placeholder="Input to search a task / tasks" className='search' onChange={onSearchChange} />
       </div>
     </>
   );
