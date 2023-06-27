@@ -42,19 +42,19 @@ function ParentComponent() {
   const [searchText, setSearchText] = useState('');
 
   const addTaskHandler = useCallback((value) => {
-    dispatch({type:"ADD_TASK", value: value})
+    dispatch({ type: "ADD_TASK", value: value })
   }, []);
 
   const onDeleteHandler = useCallback((id) => {
-    dispatch({type:"DELETE_TASK", id:id})
+    dispatch({ type: "DELETE_TASK", id: id })
   }, []);
 
   const isTaskDoneHandler = useCallback((id) => {
-    dispatch({type:"TASK_DONE", id:id})
+    dispatch({ type: "TASK_DONE", id: id })
   }, []);
 
   const onTaskUpdate = useCallback((id, event) => {
-   dispatch({type:"UPDATE_TASK", id:id, value:event.target.value})
+    dispatch({ type: "UPDATE_TASK", id: id, value: event.target.value })
   }, []);
 
   const handleFilterChange = useCallback((filterValue) => {
