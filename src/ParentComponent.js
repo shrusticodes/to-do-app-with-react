@@ -1,46 +1,61 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useReducer } from 'react';
 import AddTask from './AddTask';
 import TaskComponent from './TaskComponent';
 import FilterComponent from './FilterComponent';
 
+const initialState = [{ id: 43, taskName: "Wash clothes", isTaskDone: true }, { id: 765, taskName: "Dress up", isTaskDone: true }];
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TASK":
+      if (action.value === '') {
+        alert('Fill the input box to add a task');
+        return state;
+      } else {
+        const newObj = { id: Math.floor(Math.random() * 1000 + 1), taskName: action.value, isTaskDone: false };
+        return [...state, newObj];
+      }
+    case "DELETE_TASK":
+      return state.filter(task => task.id !== action.id);
+    case "UPDATE_TASK":
+      return state.map(task => {
+        if (task.id === action.id) {
+          return { ...task, taskName: action.value };
+        }
+        return task;
+      });
+    case "TASK_DONE":
+      return state.map(task => {
+        if (task.id === action.id) {
+          return { ...task, isTaskDone: !task.isTaskDone };
+        }
+        return task;
+      });
+    default:
+      return state;
+  }
+}
+
 function ParentComponent() {
-  const [toDoTasks, setToDoTasks] = useState([{id:43, taskName:"Wash clothes", isTaskDone: true},{id:765, taskName:"Dress up", isTaskDone:true}]);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [filter, setFilter] = useState('all');
   const [searchText, setSearchText] = useState('');
 
   const addTaskHandler = useCallback((value) => {
-    if (value === '') {
-      alert('Fill the input box to add a task');
-    } else {
-      const updatedTaskList = [...toDoTasks];
-      const newObj = { id: Math.floor(Math.random() * 1000 + 1), taskName: value, isTaskDone: false };
-      updatedTaskList.push(newObj);
-      setToDoTasks(updatedTaskList);
-      console.log('Task added');
-    }
-  }, [toDoTasks]);
+    dispatch({type:"ADD_TASK", value: value})
+  }, []);
 
   const onDeleteHandler = useCallback((id) => {
-    const updatedTaskList = toDoTasks.filter(task => task.id !== id);
-    setToDoTasks(updatedTaskList);
-    console.log('Task deleted');
-  }, [toDoTasks]);
+    dispatch({type:"DELETE_TASK", id:id})
+  }, []);
 
   const isTaskDoneHandler = useCallback((id) => {
-    const updatedTaskList = [...toDoTasks];
-    const taskIndex = updatedTaskList.findIndex(task => task.id === id);
-    updatedTaskList[taskIndex].isTaskDone = !updatedTaskList[taskIndex].isTaskDone;
-    setToDoTasks(updatedTaskList);
-    console.log('Task checked');
-  }, [toDoTasks]);
+    dispatch({type:"TASK_DONE", id:id})
+  }, []);
 
   const onTaskUpdate = useCallback((id, event) => {
-    const updatedTaskList = [...toDoTasks];
-    const taskIndex = updatedTaskList.findIndex(task => task.id === id);
-    updatedTaskList[taskIndex].taskName = event.target.value;
-    setToDoTasks(updatedTaskList);
-    console.log('Task updated');
-  }, [toDoTasks]);
+   dispatch({type:"UPDATE_TASK", id:id, value:event.target.value})
+  }, []);
 
   const handleFilterChange = useCallback((filterValue) => {
     setFilter(filterValue);
@@ -51,7 +66,7 @@ function ParentComponent() {
   }, []);
 
   const filterTasks = useCallback(() => {
-    let filteredTasks = toDoTasks;
+    let filteredTasks = state;
 
     if (filter === 'active') {
       filteredTasks = filteredTasks.filter(task => !task.isTaskDone);
@@ -65,7 +80,7 @@ function ParentComponent() {
     }
 
     return filteredTasks;
-  }, [filter, toDoTasks, searchText]);
+  }, [filter, state, searchText]);
 
   const listItems = filterTasks().map(task => (
     <TaskComponent
@@ -77,7 +92,7 @@ function ParentComponent() {
     />
   ));
 
-  console.log(toDoTasks);
+  console.log(state);
 
   return (
     <div className="mainDiv">
