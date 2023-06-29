@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useReducer } from 'react';
+import React, { useState, useCallback, useReducer,useContext } from 'react';
 import AddTask from './AddTask';
 import TaskComponent from './TaskComponent';
 import FilterComponent from './FilterComponent';
+import { ThemeContext } from './ThemeContext';
 
 const initialState = [{ id: 43, taskName: "Wash clothes", isTaskDone: true }, { id: 765, taskName: "Dress up", isTaskDone: true }];
 
@@ -37,6 +38,7 @@ function reducer(state, action) {
 }
 
 function ParentComponent() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [state, dispatch] = useReducer(reducer, initialState);
   const [filter, setFilter] = useState('all');
   const [searchText, setSearchText] = useState('');
@@ -95,8 +97,9 @@ function ParentComponent() {
   console.log(state);
 
   return (
-    <div className="mainDiv">
+      <div className={`mainDiv ${theme}`}>
       <h2>To Do List</h2>
+      <button onClick={toggleTheme} className={`btn-style ${theme} filter`}>Theme</button>
       <AddTask addTask={addTaskHandler} />
       <FilterComponent filteredValue={handleFilterChange} onSearchChange={handleSearchChange} />
       <ul>{listItems}</ul>

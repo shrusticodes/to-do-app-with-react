@@ -1,7 +1,8 @@
-import React from 'react'
-
+import React, {useContext} from 'react'
+import { ThemeContext } from './ThemeContext';
 function TaskComponent({ task, onDelete, onTaskDone, onUpdate }) {
     const { id, taskName, isTaskDone } = task;
+    const {theme} = useContext(ThemeContext);
     const handleOnDelete = () => {
         onDelete(id);
     }
@@ -15,7 +16,7 @@ function TaskComponent({ task, onDelete, onTaskDone, onUpdate }) {
         <li>
             <input type='checkbox' checked={isTaskDone} onChange={handleChange} />
             <input type="text" value={taskName} onChange={handleOnUpdate} />
-            <button className="btn-style" onClick={handleOnDelete}>Delete</button>
+            <button className={`btn-style ${theme}`} onClick={handleOnDelete}>Delete</button>
         </li>
     );
 }

@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(21, 148, 116, 0.46);
+  background-color: rgba(31, 55, 126, 0.789);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -8,8 +8,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mainDiv {
+  width: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: 650;
+  position: relative;
+  margin: 50px auto;
+  border: 2px solid rgba(0, 0, 0, 0.741);
+}
+
+.mainDiv.light{
+  background-color:aliceblue;
+  color: black;
+}
+
+.mainDiv.dark {
+  background-color:rgba(20, 20, 63, 0.762);
+  color: white;
+  border: 2px solid white;
+}
+
 .btn-style {
-  background-color: rgba(21, 148, 116, 0.46);
   margin: 5px 0px 5px 10px;
   height: 35px;
   width: 60px;
@@ -20,14 +40,13 @@ body {
   padding: 5px;
 }
 
-.mainDiv {
-  width: 320px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: 650;
-  position: relative;
-  margin: 50px auto;
+.btn-style.light{
+  background-color: rgba(31, 55, 126, 0.789);
+  color: white;
+}
+
+.btn-style.dark{
+  background-color: aliceblue;
 }
 
 .filter{
@@ -36,15 +55,21 @@ body {
 
 .addTaskDiv {
   width: 320px;
-  background-color: white;
   border-radius: 10px;
   font-weight: 650;
   margin: 10% auto;
 }
 
+.light{
+  background-color: aliceblue;
+}
+
+.dark{
+  background-color: rgba(20, 20, 63, 0);
+}
+
 .searchDiv{
   width: 320px;
-  background-color: white;
   margin-top:10px;
   margin-bottom: 30px;
 }
@@ -82,7 +107,7 @@ li input {
 li input:focus {
   outline: 0;
   border: 2px solid rgb(48, 44, 44);
-  background: rgba(21, 148, 116, 0.46);
+  background: rgba(116, 135, 207, 0.46);
 }
 
 [type="checkbox"] {
