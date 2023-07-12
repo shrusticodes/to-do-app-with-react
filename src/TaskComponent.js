@@ -19,9 +19,6 @@ function TaskComponent({ task, onDelete, onTaskDone, onUpdate }) {
         onUpdate(id, value);
        
     }
-    // const handleOnUpdate = (event) => {
-    //     onUpdate(id, event);
-    // }
     return (
         <li>
             <input type='checkbox' checked={isTaskDone} onChange={handleChange} />
