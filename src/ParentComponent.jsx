@@ -55,8 +55,8 @@ function ParentComponent() {
     dispatch({ type: "TASK_DONE", id: id })
   }, []);
 
-  const onTaskUpdate = useCallback((id, event) => {
-    dispatch({ type: "UPDATE_TASK", id: id, value: event.target.value })
+  const onTaskUpdate = useCallback((id, value) => {
+    dispatch({ type: "UPDATE_TASK", id: id, value:value })
   }, []);
 
   const handleFilterChange = useCallback((filterValue) => {
