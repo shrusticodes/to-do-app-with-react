@@ -4,7 +4,7 @@ import TaskComponent from './TaskComponent';
 import FilterComponent from './FilterComponent';
 import { ThemeContext } from './ThemeContext';
 
-const initialState = [{ id: 43, taskName: "Wash clothes", isTaskDone: true }, { id: 765, taskName: "Dress up", isTaskDone: true }];
+const initialState = [{ id: 43, taskName: "Wash clothes", isTaskDone: false }, { id: 765, taskName: "Dress up", isTaskDone: true }];
 
 function reducer(state, action) {
   switch (action.type) {

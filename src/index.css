@@ -98,18 +98,6 @@ li {
   background-color: white;
 }
 
-li input {
-  border: transparent;
-  width: 210px;
-  height: 40px;
-}
-
-li input:focus {
-  outline: 0;
-  border: 2px solid rgb(48, 44, 44);
-  background: rgba(116, 135, 207, 0.46);
-}
-
 [type="checkbox"] {
   margin-right: 5px;
   accent-color: white;
@@ -127,4 +115,8 @@ h2, h3 {
 
 .search{
   width:310px;
+}
+
+div:focus{
+  background-color: rgba(31, 55, 126, 0.518)
 }
